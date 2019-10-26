@@ -2954,7 +2954,7 @@ enum tfa_error tfa98xxTotfa(enum Tfa98xx_Error err)
 	}
 }
 
-enum tfa_error tfa_start(int next_profile, int *vstep)
+enum Tfa98xx_Error tfa_start(int next_profile, int *vstep)
 {
 	enum Tfa98xx_Error err = Tfa98xx_Error_Ok;
 	int dev, devcount = tfa98xx_cnt_max_device();
@@ -2962,7 +2962,7 @@ enum tfa_error tfa_start(int next_profile, int *vstep)
 
 	if ( devcount < 1 ) {
 		pr_err("tfa98xx: %s() No or wrong container file loaded\n", __func__);
-		return	tfa_error_bad_param;
+		return	Tfa98xx_Error_Bad_Parameter;
 	}
 
 	for( dev=0; dev < devcount; dev++) {
@@ -3084,14 +3084,14 @@ error_exit:
 	return tfa98xxTotfa(err);
 }
 
-enum tfa_error tfa_stop(void)
+enum Tfa98xx_Error tfa_stop(void)
 {
 	enum Tfa98xx_Error err = Tfa98xx_Error_Ok;
 	int dev, devcount = tfa98xx_cnt_max_device();
 
 	if ( devcount == 0 ) {
 		pr_err("tfa98xx: %s() No or wrong container file loaded\n", __func__);
-		return	tfa_error_bad_param;
+		return	Tfa98xx_Error_Bad_Parameter;
 	}
 
 	for( dev=0; dev < devcount; dev++) {
@@ -3149,7 +3149,7 @@ int tfa98xx_reset(Tfa98xx_handle_t handle)
 	return err;
 }
 
-enum tfa_error tfa_reset(void)
+enum Tfa98xx_Error tfa_reset(void)
 {
 	enum Tfa98xx_Error err = Tfa98xx_Error_Ok;
 	int dev, devcount = tfa98xx_cnt_max_device();
