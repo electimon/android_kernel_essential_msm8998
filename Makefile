@@ -634,7 +634,11 @@ CLANG_FLAGS	+= -no-integrated-as
 CLANG_FLAGS	+= -Werror=unknown-warning-option
 CLANG_FLAGS    += $(call cc-option, -Wno-misleading-indentation)
 CLANG_FLAGS    += $(call cc-option, -Wno-bool-operation)
-KBUILD_CFLAGS	+= $(CLANG_FLAGS)
+KBUILD_CFLAGS	+= $(CLANG_FLAGS) --param=max-inline-insns-auto=1000 \
+				 --param=inline-min-speedup=15 \
+				 --param=max-inline-insns-single=200 \
+				 --param=max-inline-insns-auto=30 \
+				 --param=early-inlining-insns=14
 KBUILD_AFLAGS	+= $(CLANG_FLAGS)
 endif
 
