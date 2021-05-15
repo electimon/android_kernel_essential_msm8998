@@ -17170,10 +17170,11 @@ u8 v_mag_sec_if_pow_mode_u8)
 	break;
 	}
 	/* set mag interface auto mode*/
-	if (p_bmi160->mag_manual_enable == BMI160_MANUAL_ENABLE)
+	if (p_bmi160->mag_manual_enable == BMI160_MANUAL_ENABLE) {
 		com_rslt += bmi160_set_mag_manual_enable(
 		BMI160_MANUAL_DISABLE);
 		p_bmi160->delay_msec(BMI160_GEN_READ_WRITE_DELAY);
+	}
 	return com_rslt;
 }
 /*!
