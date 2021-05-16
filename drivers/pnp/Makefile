@@ -4,6 +4,7 @@
 
 obj-y		:= pnp.o
 
+CFLAGS_resource.o := -Wno-array-bounds
 pnp-y		:= core.o card.o driver.o resource.o manager.o support.o interface.o quirks.o
 
 obj-$(CONFIG_PNPACPI)		+= pnpacpi/
