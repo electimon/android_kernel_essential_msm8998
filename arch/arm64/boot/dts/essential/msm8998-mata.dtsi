@@ -516,6 +516,12 @@
 		qcom,mdss-pan-physical-width-dimension = <66>;
 		qcom,mdss-pan-physical-height-dimension = <129>;
 
+
+		qcom,mdss-dsi-panel-hdr-enabled;
+		qcom,mdss-dsi-panel-hdr-color-primaries = <14500 15500 32000
+			17000 15500 30000 8000 3000>;
+		qcom,mdss-dsi-panel-peak-brightness = <4200000>;
+		qcom,mdss-dsi-panel-blackness-level = <3230>;
 		qcom,adjust-timer-wakeup-ms = <1>;
 
 		qcom,mdss-dsi-on-command = [15 01 00 00 00 00 02 ff 10
@@ -548,13 +554,13 @@
 			15 01 00 00 00 00 02 c9 ff
 			15 01 00 00 00 00 02 ca a9
 			15 01 00 00 00 00 02 ff 10
-			05 01 00 00 30 00 01 29
+			05 01 00 00 11 00 01 29
 			07 01 00 00 00 00 02 01 00];
 
 		qcom,mdss-dsi-post-panel-on-command = [05 01 00 00 30 00 01 29];
 
 		qcom,mdss-dsi-off-command = [05 01 00 00 11 00 02 28 00
-				 05 01 00 00 43 00 02 10 00];
+				 05 01 00 00 11 00 02 10 00];
 
 		qcom,compression-mode = "dsc";
 		qcom,config-select = <&dsi_nt35597_dsc_cmd_mata_config2>;
